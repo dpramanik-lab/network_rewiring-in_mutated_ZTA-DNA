@@ -1,0 +1,53 @@
+;
+;	File 'topol.top' was generated
+;	By user: debabrata (1008)
+;	On host: hpcmaster2.cluster.local
+;	At date: Mon Jul 22 14:49:48 2024
+;
+;	This is a standalone topology file
+;
+;	Created by:
+;	                    :-) GROMACS - gmx pdb2gmx, 2022.4 (-:
+;	
+;	Executable:   /home/apps/gromacs-2022.4/bin/gmx_mpi
+;	Data prefix:  /home/apps/gromacs-2022.4
+;	Working dir:  /home/debabrata/Boobalan/chapter2/glumut/an/3/major_arg/b
+;	Command line:
+;	  gmx_mpi pdb2gmx -f a.pdb -o a.gro
+;	Force field was read from the standard GROMACS share directory.
+;
+
+; Include forcefield parameters
+#include "amber03.ff/forcefield.itp"
+
+; Include chain topologies
+#include "topol_Protein_chain_C.itp"
+#include "topol_Protein_chain_D.itp"
+#include "topol_DNA_chain_A.itp"
+#include "topol_DNA_chain_B.itp"
+
+; Include water topology
+#include "amber03.ff/tip3p.itp"
+
+#ifdef POSRES_WATER
+; Position restraint for each water oxygen
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+
+; Include topology for ions
+#include "amber03.ff/ions.itp"
+
+[ system ]
+; Name
+Green Red Orange Magenta Azure Cyan Skyblue in water
+
+[ molecules ]
+; Compound        #mols
+Protein_chain_C     1
+Protein_chain_D     1
+DNA_chain_A         1
+DNA_chain_B         1
+SOL         37024
+NA               8
