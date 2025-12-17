@@ -1,0 +1,16 @@
+&general
+  startframe=40000,
+  endframe=50000,
+  interval=1,
+  verbose=3,
+  keep_files=0,
+/
+
+&pb
+  istrng=0.15,
+/
+
+&decomp
+  idecomp=1,
+/
+
